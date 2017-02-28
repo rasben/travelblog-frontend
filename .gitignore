@@ -1,0 +1,6 @@
+node_modules/
+.sass-cache/
+build/
+.idea
+source/images/placeholder
+.DS_Store
