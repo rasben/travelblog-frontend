@@ -71,28 +71,40 @@ module.exports = function(grunt) {
         },
 
         image_resize: {
-            teaser_small : {
+            header : {
                 options: {
-                    width: 130,
-                    height: 90,
+                    width: 764,
+                    height: 400,
                     crop: true,
                     overwrite: true
                 },
 
                 src: ['source/images/**/*.png', 'source/images/**/*.jpg', 'source/images/**/*.jpeg'],
-                dest: 'build/images/teaser_small/'
+                dest: 'build/images/header/'
             },
 
-            full_body : {
+            teaser : {
                 options: {
-                    width: 650,
-                    height: 300,
+                    width: 764,
+                    height: 250,
                     crop: true,
                     overwrite: true
                 },
 
                 src: ['source/images/**/*.png', 'source/images/**/*.jpg', 'source/images/**/*.jpeg'],
-                dest: 'build/images/article_header/'
+                dest: 'build/images/teaser/'
+            },
+
+            mini : {
+                options: {
+                    width: 120,
+                    height: 120,
+                    crop: true,
+                    overwrite: true
+                },
+
+                src: ['source/images/**/*.png', 'source/images/**/*.jpg', 'source/images/**/*.jpeg'],
+                dest: 'build/images/mini/'
             }
         },
 
