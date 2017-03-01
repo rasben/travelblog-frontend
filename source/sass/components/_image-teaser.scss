@@ -1,3 +1,21 @@
 .image-teaser {
-  background-color: red;
+  margin-bottom: $gutter;
+
+  @include box-shadow();
+  @include pull-out();
+
+  &__image {
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__caption {
+    color: $color__text--light;
+    background-color: $color--map;
+
+    @include content-padding($gutter--small, $gutter--small, $gutter--small, $gutter--small);
+  }
 }

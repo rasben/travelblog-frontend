@@ -1,0 +1,24 @@
+html, body {
+  margin: $gutter auto;
+  padding: 0;
+  background-color: $color__background;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: $font-size--body;
+}
+
+.container {
+  position: relative;
+  display: block;
+
+
+  margin: auto;
+  background-color: #9D4D56;
+
+  @include container-width();
+  @include content-padding();
+}
+
+.container__content {
+  background-color: $color__light;
+  @include content-padding();
+}

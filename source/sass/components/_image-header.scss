@@ -1,3 +1,46 @@
-.image-teaser {
-  background-color: orange;
+.image-header {
+  position: relative;
+  overflow: hidden;
+  max-height: 450px;
+  margin-top: -$gutter--large;
+  margin-bottom: $gutter;
+
+  @include box-shadow();
+  @include pull-out();
+
+  &__image {
+    background-color: orange;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__captions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: $gutter--large + $gutter;
+    margin-right: $gutter--large;
+
+    color: $color__text--light;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    @include content-padding($gutter--small, $gutter, $gutter, $gutter);
+  }
+
+  &__title {
+    margin: 0;
+    @include typography-headline();
+
+
+  }
+
+  &__subtitle {
+    font-size: $font-size--body;
+    font-weight: normal;
+    margin: 0;
+  }
 }

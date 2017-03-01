@@ -1,0 +1,13 @@
+.header {
+  margin: auto;
+  color: $color__text--light;
+
+  @include container-width();
+}
+
+.header__content {
+  background-color: $color__map;
+
+  @include content-padding();
+  @include pull-out('false', $gutter * 2);
+}

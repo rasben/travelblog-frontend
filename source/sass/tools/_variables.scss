@@ -1,0 +1,24 @@
+// Structure
+$gutter: 20px;
+$gutter--xlarge: $gutter * 4;
+$gutter--large: $gutter * 2;
+$gutter--small: $gutter / 2;
+
+$container-width--max: 764px;
+
+// Breakpoints
+$breakpoint--tablet: $container-width--max + ($gutter--large);
+
+// Typography
+$font-size--body: 16px;
+$font-size--headline: 38px;
+
+// Colors
+$color__text--light: #fff;
+$color__text--dark: #121212;
+
+$color__light: #F8F8F8;
+$color__sand: #DFC6AD;
+$color__sand--light: #EDCBBA;
+$color__map: #17495E;
+$color__background: #EADFBC;

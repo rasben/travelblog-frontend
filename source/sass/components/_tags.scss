@@ -1,0 +1,28 @@
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin-right: $gutter--small / 2;
+
+    color: $color__text--light;
+
+    > a {
+      display: block;
+      padding: 8px;
+      margin-bottom: $gutter;
+      background-color: $color__sand;
+
+      color: $color__text--dark;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $color__sand--light;
+      }
+    }
+  }
+}

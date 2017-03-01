@@ -1,0 +1,35 @@
+@mixin box-shadow() {
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.20);
+}
+
+@mixin pull-out($is-content:'true', $margin: $gutter--xlarge) {
+  margin-left: -$margin;
+  margin-right: -$margin;
+
+  @media screen and (max-width: $container-width--max + ($gutter--xlarge * 2)) {
+
+    margin-left: 0;
+    margin-right: 0;
+
+    @if $is-content == 'true' {
+      margin-left: -$gutter--large;
+      margin-right: -$gutter--large;
+
+    }
+
+  }
+}
+
+@mixin content-padding($padding-top: $gutter, $padding-left: $gutter, $padding-bottom: $gutter, $padding-right: $gutter) {
+  box-sizing: border-box;
+  padding: $padding-top $padding-left $padding-bottom $padding-right;
+}
+
+@mixin typography-headline($font-size: $font-size--headline) {
+  font-size: $font-size;
+  font-weight: 600;
+}
+
+@mixin container-width($width-max: $container-width--max) {
+  max-width: $width-max;
+}
