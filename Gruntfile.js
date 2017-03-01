@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-file-append');
     grunt.loadNpmTasks('grunt-image-resize');
     grunt.loadNpmTasks('grunt-wget');
 
@@ -12,12 +13,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('css', ['clean:css', 'sass', 'autoprefixer', 'cssmin']);
-    grunt.registerTask('js', ['clean:js', 'uglify:js', 'concat:js']);
+    grunt.registerTask('js', ['clean:js', 'uglify:js', 'concat:js', 'file_append:js']);
     grunt.registerTask('images', ['clean:images', 'copy:images', 'image_resize']);
     grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
     grunt.registerTask('assets', ['clean:assets', 'copy:assets']);
 
-    grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('build', ['wget', 'css', 'js', 'images', 'fonts', 'assets']);
 
     grunt.initConfig({
@@ -28,22 +29,22 @@ module.exports = function(grunt) {
             },
 
             images: {
-                files: 'source/images',
+                files: 'source/images/**/*',
                 tasks: ['images']
             },
 
             js: {
-                files: 'source/js',
+                files: 'source/js/**/*',
                 tasks: ['js']
             },
 
             fonts: {
-                files: 'source/fonts',
+                files: 'source/fonts/**/*',
                 tasks: ['js']
             },
 
             assets: {
-                files: 'source/assets',
+                files: 'source/assets/**/*',
                 tasks: ['assets']
             }
         },
@@ -73,8 +74,8 @@ module.exports = function(grunt) {
         image_resize: {
             header : {
                 options: {
-                    width: 764,
-                    height: 400,
+                    width: 860,
+                    height: 600,
                     crop: true,
                     overwrite: true
                 },
@@ -85,8 +86,8 @@ module.exports = function(grunt) {
 
             teaser : {
                 options: {
-                    width: 764,
-                    height: 250,
+                    width: 860,
+                    height: 300,
                     crop: true,
                     overwrite: true
                 },
@@ -95,16 +96,16 @@ module.exports = function(grunt) {
                 dest: 'build/images/teaser/'
             },
 
-            mini : {
+            teaser_small : {
                 options: {
-                    width: 120,
-                    height: 120,
+                    width: 250,
+                    height: 250,
                     crop: true,
                     overwrite: true
                 },
 
                 src: ['source/images/**/*.png', 'source/images/**/*.jpg', 'source/images/**/*.jpeg'],
-                dest: 'build/images/mini/'
+                dest: 'build/images/teaser_small/'
             }
         },
 
@@ -187,6 +188,18 @@ module.exports = function(grunt) {
                     'source/images/placeholder/7.jpeg':'https://placeimg.com/2000/1400/nature',
                     'source/images/placeholder/8.jpeg':'https://placeimg.com/2000/1400/nature'
                 }
+            }
+        },
+        file_append: {
+            js: {
+                files: [
+                    {
+                        prepend: '$(document).ready(function(){',
+                        append: '});',
+                        input: 'build/js/build.js',
+                        output: 'build/js/build.js'
+                    }
+                ]
             }
         }
     })

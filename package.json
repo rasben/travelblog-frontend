@@ -4,7 +4,6 @@
   "description": "",
   "main": "gruntfile.js",
   "dependencies": {
-    "grunt-contrib-concat": "^1.0.1"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
