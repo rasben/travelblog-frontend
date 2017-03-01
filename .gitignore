@@ -4,3 +4,6 @@ build/
 .idea
 source/images/placeholder
 .DS_Store
+.npm-debug
+npm-debug.log
+
