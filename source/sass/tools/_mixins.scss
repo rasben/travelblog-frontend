@@ -57,9 +57,46 @@
   }
 }
 
+@mixin pull-out__size-standard() {
+  width: 250px;
+
+  @include media-query__mobile() {
+    width: 130px;
+  }
+}
+
+
 @mixin is-hidden() {
   &.is-hidden {
     display: none;
+  }
+}
+@mixin link--body($type: 'dark') {
+  position: relative;
+  display: inline-block;
+
+  color: $color__text--dark;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:before {
+    content: '';
+    display: block;
+    float: left;
+    height: 8px;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin-bottom: -30px;
+    margin-top: 17px;
+
+    background-color: $color__link__background;
+  }
+
+  &:hover {
+    &:before {
+      background-color: $color__link__background--active;
+    }
   }
 }
 
@@ -90,6 +127,14 @@
   font-weight: bold;
 }
 
+@mixin typography-selection() {
+  > *::selection,
+  &::selection {
+    background: $color__map;
+    color: $color__text--light;
+  }
+}
+
 @mixin container-width($width-max: $container-width--max) {
   max-width: $width-max;
 }
@@ -101,7 +146,13 @@
 }
 
 @mixin media-query__tablet() {
-  @include media-query('max-width', $container-width--max + ($gutter--xlarge * 2)) {
+  @include media-query('max-width', $breakpoint--tablet) {
+    @content;
+  }
+}
+
+@mixin media-query__mobile() {
+  @include media-query('max-width', $breakpoint--mobile) {
     @content;
   }
 }
@@ -130,3 +181,18 @@
     }
   }
 }
+
+@mixin icon($icon, $position: 'before') {
+  &:#{$position} {
+    font-family: 'icomoon';
+    content: $icon;
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+

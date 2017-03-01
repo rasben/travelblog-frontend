@@ -14,10 +14,16 @@ travelblog.Header.prototype = {
         this.titles = this.element.find('.js-titles-header');
         this.titleMain = $('.js-titles-main');
         this.titleMainBottom = this.titleMain.position().top + this.titleMain.outerHeight(true)
+        this.buttonMenu = this.element.find('.js-header-menu-button');
+        this.navOverride = false;
 
 
 
         var $this = this;
+
+        this.buttonMenu.on('click', function(){
+            $this.navToggle();
+        });
 
         // Scroll event, with timeout that wont trigger until user has stopped scrolling.
         $(window).scroll(function() {
@@ -39,11 +45,11 @@ travelblog.Header.prototype = {
         var position = $(document).scrollTop();
 
         if (position > this.titleMainBottom) {
-            this.hideNav();
+            this.showTitles();
         }
 
         else {
-            this.showNav();
+            this.hideTitles();
         }
 
         if (position > this.headerTop) {
@@ -55,11 +61,11 @@ travelblog.Header.prototype = {
         }
     },
 
-    hideNav : function() {
+    showTitles : function() {
         this.element.addClass('is-titles');
     },
 
-    showNav : function() {
+    hideTitles : function() {
         this.element.removeClass('is-titles');
     },
 
@@ -69,6 +75,13 @@ travelblog.Header.prototype = {
 
     unstickHeader : function() {
         this.element.removeClass('is-fixed');
+    },
+
+    navToggle : function() {
+        $('body').toggleClass('is-menu-open');
+        this.element.toggleClass('is-titles');
+        this.element.toggleClass('is-manual-titles');
+        this.navOverride = !this.navOverride;
     }
 };
 

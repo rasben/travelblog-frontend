@@ -1,5 +1,27 @@
+@mixin header-sticky() {
+  .header__placeholder {
+    height: $header__height;
+  }
+
+  .header__content {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    max-width: $container-width--max + ($gutter--large * 2);
+
+    @include media-query__tablet() {
+      max-width: $container-width--max;
+    }
+  }
+}
+
 .header {
   margin: auto;
+  margin-top: -1px;
   color: $color__text--light;
 
   @include container-width();
@@ -15,28 +37,26 @@
     }
   }
 
-  &.is-fixed {
-    .header__placeholder {
-      height: $header__height;
-    }
+  @include media-query__tablet() {
+    &.is-titles {
+      .header__navigation,
+      .header__titles--tagline {
+        margin-top: 0;
+      }
 
-    .header__content {
-      position: fixed;
-      margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-
-      max-width: $container-width--max + ($gutter--large * 2);
-
-      @include media-query__tablet() {
-        max-width: $container-width--max;
+      .header__controls {
+        margin-top: -$header__height;
       }
     }
   }
 
+  &.is-fixed {
+    @include header-sticky();
+  }
+
   @include media-query__tablet() {
+    @include header-sticky();
+
     .header__navigation {
       display: none;
     }
@@ -48,7 +68,6 @@
     .header__controls {
       margin-top: -$header__height;
     }
-
   }
 
   &__placeholder {
@@ -56,12 +75,12 @@
   }
 
   &__content {
+    position: relative;
     height: $header__height;
     overflow: hidden;
 
     background-color: $color__map;
 
-    @include box-shadow--absolute();
     @include typography-header-title();
     @include content-padding($gutter, 100px, $gutter, $gutter);
     @include pull-out('false', 'all', $gutter * 2);
@@ -121,7 +140,6 @@
     margin-left: $gutter;
     margin-right: $gutter / 2;
 
-
     color: inherit;
     text-decoration: none;
 
@@ -152,5 +170,10 @@
     padding: $gutter;
 
     transition: margin 0.5s ease-in-out;
+  }
+
+  &__control-menu {
+    margin: 0;
+    @include icon($icon__menu);
   }
 }

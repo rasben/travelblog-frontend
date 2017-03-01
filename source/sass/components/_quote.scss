@@ -1,10 +1,11 @@
 .quote {
   display: block;
-  width: 250px;
   overflow: hidden;
 
+  word-break: break-word;
   background-color: $color__post-it;
 
+  @include pull-out__size-standard();
   @include content-padding();
   @include pull-out('true', 'left');
   @include box-shadow();
@@ -27,6 +28,18 @@
       line-height: 0;
       font-size: 140px;
     }
+
+    @include media-query__mobile() {
+      font-size: $font-size__body;
+      line-height: $font-lineheight__body;
+
+      &:before {
+        margin-top: 28px;
+        margin-left: -5px;
+        font-size: 70px;
+      }
+    }
+
   }
 
   &__author {
@@ -34,5 +47,11 @@
 
     font-size: 18px;
     color: $color__text--inactive;
+
+    @include media-query__mobile() {
+      font-size: $font-size__body;
+      line-height: $font-lineheight__body;
+
+    }
   }
 }

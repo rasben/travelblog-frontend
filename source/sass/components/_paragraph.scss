@@ -2,5 +2,10 @@
   margin-top: 0;
   margin-bottom: $gutter;
 
+  > a {
+    @include link--body();
+  }
+
   @include typography-body();
+  @include typography-selection();
 }

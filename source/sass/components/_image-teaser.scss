@@ -9,7 +9,8 @@
 
   &.image-teaser--small {
     clear: none;
-    width: 250px;
+
+    @include pull-out__size-standard();
     @include pull-out('true', 'right');
 
     .image-teaser__image-wrapper {

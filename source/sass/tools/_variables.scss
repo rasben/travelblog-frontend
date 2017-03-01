@@ -12,6 +12,8 @@ $header__height--bare: $header__height - ($gutter * 2);
 
 // Breakpoints
 $breakpoint--tablet: $container-width--max + ($gutter--large);
+$breakpoint--mobile: 500px;
+
 
 // Typography
 $font-size__body: 16px;
@@ -22,18 +24,33 @@ $font-size__header-title: 26px;
 $font-lineheight__body: 28px;
 
 // Colors
-$color__text--light: #fff;
-$color__text--dark: #121212;
-$color__text--inactive: #9D9D9D;
-
-$color__link--hover: #e7e7e7;
-
 $color__light: #F8F8F8;
 $color__sand: #DFC6AD;
 $color__sand--light: #EDCBBA;
+$color__sand--dark: #ab927b;
 $color__post-it: #FAF6EC;
 $color__map: #17495E;
 $color__map--light: #385E6B;
 $color__background: #EADFBC;
 
+$color__text--light: #fff;
+$color__text--dark: #121212;
+$color__text--inactive: #9D9D9D;
+
+$color__link--hover: #e7e7e7;
+$color__link__background: $color__sand;
+$color__link__background--active: $color__sand--dark;
+
+
 $color__box-shadow: rgba(0, 0, 0, 0.20);
+
+// Icons
+$icon__heart: '\e024';
+$icon__thermometer: '\e062';
+$icon__location: '\e070';
+$icon__map: '\e072';
+$icon__briefcase: '\e075';
+$icon__globe: '\e078';
+$icon__expand: '\e110';
+$icon__cross: '\e117';
+$icon__menu: '\e120';
