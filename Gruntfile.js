@@ -122,7 +122,7 @@ module.exports = function(grunt) {
                 cwd: 'source/fonts',
                 src: '**',
                 dest: 'build/fonts/',
-                flatten: true
+                flatten: false
             },
 
             assets: {
