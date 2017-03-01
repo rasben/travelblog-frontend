@@ -3,7 +3,13 @@ html, body {
   padding: 0;
   background-color: $color__background;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: $font-size--body;
+
+  @include media-query__tablet() {
+    margin-top: 0;
+  }
+
+  @include typography-body();
+
 }
 
 .container {

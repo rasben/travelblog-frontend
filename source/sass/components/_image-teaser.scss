@@ -1,20 +1,30 @@
 .image-teaser {
   margin-bottom: $gutter;
+  clear: both;
+
+  background-color: $color__post-it;
 
   @include box-shadow();
   @include pull-out();
 
-  &__image {
-    > img {
-      display: block;
-      width: 100%;
-      height: auto;
+  &.image-teaser--small {
+    clear: none;
+    width: 250px;
+    @include pull-out('true', 'right');
+
+    .image-teaser__image-wrapper {
+      @include aspect-ratio(1, 1, 'image-teaser__image');
     }
   }
 
+  &__image-wrapper {
+    @include aspect-ratio(16, 5, 'image-teaser__image');
+  }
+
+
   &__caption {
     color: $color__text--light;
-    background-color: $color--map;
+    background-color: $color__map--light;
 
     @include content-padding($gutter--small, $gutter--small, $gutter--small, $gutter--small);
   }

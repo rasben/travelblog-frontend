@@ -1,0 +1,21 @@
+.article {
+
+
+  &__titles {
+    clear: both;
+    margin-bottom: $gutter;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: $gutter--small;
+
+    @include typography-title();
+  }
+
+  &__subtitle {
+    margin: 0;
+
+    @include typography-subtitle();
+  }
+}

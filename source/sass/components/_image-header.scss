@@ -8,7 +8,7 @@
   @include box-shadow();
   @include pull-out();
 
-  &__image {
+  &__image-wrapper {
     background-color: orange;
 
     > img {
@@ -28,19 +28,26 @@
     color: $color__text--light;
     background-color: rgba(0, 0, 0, 0.4);
 
-    @include content-padding($gutter--small, $gutter, $gutter, $gutter);
+    @include media-query__tablet() {
+      margin-left: $gutter;
+      margin-right: $gutter;
+    }
+
+    @include content-padding();
   }
 
   &__title {
     margin: 0;
-    @include typography-headline();
+    margin-bottom: $gutter--small;
+
+    @include typography-title();
 
 
   }
 
   &__subtitle {
-    font-size: $font-size--body;
-    font-weight: normal;
     margin: 0;
+
+    @include typography-subtitle();
   }
 }

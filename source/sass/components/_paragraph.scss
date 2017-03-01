@@ -1,4 +1,6 @@
 .paragraph {
   margin-top: 0;
   margin-bottom: $gutter;
+
+  @include typography-body();
 }

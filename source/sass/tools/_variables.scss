@@ -6,19 +6,34 @@ $gutter--small: $gutter / 2;
 
 $container-width--max: 764px;
 
+$header__height: 90px;
+$header__height--bare: $header__height - ($gutter * 2);
+
+
 // Breakpoints
 $breakpoint--tablet: $container-width--max + ($gutter--large);
 
 // Typography
-$font-size--body: 16px;
-$font-size--headline: 38px;
+$font-size__body: 16px;
+$font-size__title: 38px;
+$font-size__subtitle: 22px;
+$font-size__header-title: 26px;
+
+$font-lineheight__body: 28px;
 
 // Colors
 $color__text--light: #fff;
 $color__text--dark: #121212;
+$color__text--inactive: #9D9D9D;
+
+$color__link--hover: #e7e7e7;
 
 $color__light: #F8F8F8;
 $color__sand: #DFC6AD;
 $color__sand--light: #EDCBBA;
+$color__post-it: #FAF6EC;
 $color__map: #17495E;
+$color__map--light: #385E6B;
 $color__background: #EADFBC;
+
+$color__box-shadow: rgba(0, 0, 0, 0.20);

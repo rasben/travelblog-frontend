@@ -1,35 +1,132 @@
 @mixin box-shadow() {
-  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.20);
+  box-shadow: -4px 4px 10px $color__box-shadow;
 }
 
-@mixin pull-out($is-content:'true', $margin: $gutter--xlarge) {
+@mixin box-shadow--absolute() {
+  box-shadow: -4px 4px 10px $color__box-shadow;
+
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    height: 4px;
+    box-shadow: 0px 4px 10px $color__box-shadow;
+  }
+}
+
+@mixin pull-out($is-content: 'true', $direction: all, $margin: $gutter--xlarge) {
   margin-left: -$margin;
   margin-right: -$margin;
 
-  @media screen and (max-width: $container-width--max + ($gutter--xlarge * 2)) {
+  @if $direction == 'left' {
+    margin-right: $gutter;
+    margin-top: $font-lineheight__body / 3;
+    margin-bottom: 0;
+    float: left;
+  }
 
+  @if $direction == 'right' {
+    margin-left: $gutter;
+    margin-top: $font-lineheight__body / 3;
+    margin-bottom: 0;
+    float: right;
+  }
+
+  @include media-query__tablet() {
     margin-left: 0;
     margin-right: 0;
 
     @if $is-content == 'true' {
       margin-left: -$gutter--large;
       margin-right: -$gutter--large;
-
     }
 
+    @if $direction == 'left' {
+      margin-right: $gutter;
+    }
+
+    @if $direction == 'right' {
+      margin-left: $gutter;
+    }
   }
 }
 
-@mixin content-padding($padding-top: $gutter, $padding-left: $gutter, $padding-bottom: $gutter, $padding-right: $gutter) {
-  box-sizing: border-box;
-  padding: $padding-top $padding-left $padding-bottom $padding-right;
+@mixin is-hidden() {
+  &.is-hidden {
+    display: none;
+  }
 }
 
-@mixin typography-headline($font-size: $font-size--headline) {
+@mixin content-padding($padding-top: $gutter, $padding-right: $gutter, $padding-bottom: $gutter, $padding-left: $gutter) {
+  box-sizing: border-box;
+  padding: $padding-top $padding-right $padding-bottom $padding-left;
+}
+
+@mixin typography-title($font-size: $font-size__title) {
   font-size: $font-size;
   font-weight: 600;
 }
 
+@mixin typography-subtitle($font-size: $font-size__subtitle) {
+  font-size: $font-size;
+  font-weight: normal;
+  font-style: italic;
+}
+
+@mixin typography-body($font-size: $font-size__body) {
+  font-size: $font-size;
+  font-weight: normal;
+  line-height: $font_lineheight__body;
+}
+
+@mixin typography-header-title($font-size: $font-size__header-title) {
+  font-size: $font-size;
+  font-weight: bold;
+}
+
 @mixin container-width($width-max: $container-width--max) {
   max-width: $width-max;
+}
+
+@mixin media-query($definition, $breakpoint) {
+  @media screen and ($definition: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-query__tablet() {
+  @include media-query('max-width', $container-width--max + ($gutter--xlarge * 2)) {
+    @content;
+  }
+}
+
+@mixin aspect-ratio($width, $height, $content-selector:'content') {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .#{$content-selector} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    overflow: hidden;
+
+    > img {
+      display: block;
+      margin: 0;
+      width: 100%;
+    }
+  }
 }
