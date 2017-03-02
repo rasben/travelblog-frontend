@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('css', ['clean:css', 'sass', 'autoprefixer', 'cssmin']);
     grunt.registerTask('js', ['clean:js', 'uglify:js', 'concat:js', 'file_append:js']);
-    grunt.registerTask('images', ['clean:images', 'copy:images', 'image_resize']);
+    grunt.registerTask('images', ['clean:images', 'copy:images', 'image_resize', 'imagemin:images']);
     grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
     grunt.registerTask('assets', ['clean:assets', 'copy:assets', 'imagemin:assets']);
 
@@ -210,8 +210,16 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'build/assets',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,jpeg,gif}'],
                     dest: 'build/assets/'
+                }]
+            },
+            images: {
+                files: [{
+                    expand: true,
+                    cwd: 'build/images',
+                    src: ['**/*.{png,jpg,jpeg,gif}'],
+                    dest: 'build/images/'
                 }]
             }
         }
