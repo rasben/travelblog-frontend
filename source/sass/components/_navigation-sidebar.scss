@@ -22,8 +22,8 @@
   max-width: 0;
   overflow: hidden;
 
-
-  background-color: $color__map;
-
   transition: max-width 0.5s ease-in-out;
+
+  @include is-hidden();
+  @include set-map-bg('../assets/map-bg-faded__full.jpg');
 }

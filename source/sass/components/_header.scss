@@ -38,7 +38,7 @@
   }
 
   @include media-query__tablet() {
-    &.is-titles {
+    &.is-manual-titles {
       .header__navigation,
       .header__titles--tagline {
         margin-top: 0;
@@ -79,30 +79,43 @@
     height: $header__height;
     overflow: hidden;
 
-    background-color: $color__map;
-
+    @include set-map-bg();
     @include typography-header-title();
-    @include content-padding($gutter, 100px, $gutter, $gutter);
+    @include content-padding($gutter, 100px, $gutter, $header__height--bare + ($gutter * 2) + $gutter--small);
     @include pull-out('false', 'all', $gutter * 2);
   }
 
   &__logo {
+    position: absolute;
+    left: $gutter;
+    display: block;
     float: left;
-    width: $header__height--bare;
-    height: $header__height--bare;
+    width: $header__height--bare + $gutter--small;
+    height: $header__height--bare + $gutter--small;
     margin: 0;
     margin-right: $gutter;
-    background-color: $color__sand;
+    margin-top: -$gutter--small / 2;
 
+    color: $color__sand--light;
+    font-size: $header__height--bare + $gutter--small;
+    text-decoration: none;
+
+    @include icon($icon__travel-heart--circle);
+
+    &:hover {
+      color: $color__sand;
+    }
   }
 
   &__body {
     float: left;
     height: $header__height--bare;
     overflow: hidden;
+    width: 100%;
   }
 
   &__titles {
+    position: relative;
     height: $header__height--bare;
     transition: margin 0.5s ease-in-out;
 
@@ -112,13 +125,29 @@
   }
 
   &__title {
+    display: block;
     margin: 0;
-
+    height: 28px;
+    width: 100%;
+    overflow: hidden;
     font-size: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__subtitle {
+    display: block;
     margin: 0;
+    height: 28px;
+    width: 100%;
+    overflow: hidden;
+    font-size: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-style: italic;
 
     @include typography-body();
   }
