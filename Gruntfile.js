@@ -11,12 +11,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.registerTask('css', ['clean:css', 'sass', 'autoprefixer', 'cssmin']);
     grunt.registerTask('js', ['clean:js', 'uglify:js', 'concat:js', 'file_append:js']);
     grunt.registerTask('images', ['clean:images', 'copy:images', 'image_resize']);
     grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
-    grunt.registerTask('assets', ['clean:assets', 'copy:assets']);
+    grunt.registerTask('assets', ['clean:assets', 'copy:assets', 'imagemin:assets']);
 
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('build', ['wget', 'css', 'js', 'images', 'fonts', 'assets']);
@@ -190,6 +191,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         file_append: {
             js: {
                 files: [
@@ -200,6 +202,17 @@ module.exports = function(grunt) {
                         output: 'build/js/build.js'
                     }
                 ]
+            }
+        },
+
+        imagemin: {
+            assets: {
+                files: [{
+                    expand: true,
+                    cwd: 'build/assets',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'build/assets/'
+                }]
             }
         }
     })
