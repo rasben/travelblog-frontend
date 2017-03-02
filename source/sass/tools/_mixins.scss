@@ -61,7 +61,7 @@
   width: 250px;
 
   @include media-query__mobile() {
-    width: 130px;
+    width: 150px;
   }
 }
 
@@ -193,6 +193,14 @@
     line-height: 1;
     -webkit-font-smoothing: antialiased;
   }
+}
+
+@mixin set-map-bg($image_path: '../assets/map-bg__full.jpg') {
+  background-color: $color__map;
+  background-image: url($image_path);
+  background-repeat: no-repeat;
+  background-position: center center fixed;
+  background-size: cover;
 }
 
 

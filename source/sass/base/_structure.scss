@@ -2,6 +2,8 @@ html, body {
   margin: $gutter auto;
   padding: 0;
   background-color: $color__background;
+  background-image: url('../assets/paper-bg.jpg');
+  background-attachment: fixed;
   font-family: 'Source Sans Pro', sans-serif;
 
   @include media-query__tablet() {
@@ -19,6 +21,7 @@ html, body {
 
   margin: auto;
   background-color: #9D4D56;
+  background-image: url('../assets/letter-bg.jpg');
 
   @include container-width();
   @include content-padding();

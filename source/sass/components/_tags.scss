@@ -13,7 +13,7 @@
       display: block;
       padding: 8px;
       margin-bottom: $gutter;
-      background-color: $color__sand;
+      background-color: $color__sand--light;
 
       cursor: pointer;
       color: $color__text--dark;
@@ -22,7 +22,7 @@
       text-decoration: none;
 
       &:hover {
-        background-color: $color__sand--light;
+        background-color: $color__sand;
       }
     }
   }
