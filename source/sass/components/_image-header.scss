@@ -11,11 +11,8 @@
   &__image-wrapper {
     background-color: $color__post-it;
 
-    > img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    @include aspect-ratio(16, 11, 'image-header__image');
+
   }
 
   &__captions {
