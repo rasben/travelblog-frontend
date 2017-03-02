@@ -9,38 +9,40 @@ travelblog.Header = function(options) {
 travelblog.Header.prototype = {
     _attach : function () {
         this.headerPlaceholder = this.element.find('.js-header-placeholder');
-        this.headerTop = this.headerPlaceholder.position().top;
+
         this.nav = this.element.find('.js-nav');
         this.titles = this.element.find('.js-titles-header');
         this.titleMain = $('.js-titles-main');
-        this.titleMainBottom = this.titleMain.position().top + this.titleMain.outerHeight(true)
         this.buttonMenu = this.element.find('.js-header-menu-button');
         this.navOverride = false;
-
-
+        this.docWidth = $(document).width();
+        this.navSidebar = $('.js-nav-sidebar');
 
         var $this = this;
+
+        this.findPositions();
 
         this.buttonMenu.on('click', function(){
             $this.navToggle();
         });
 
-        // Scroll event, with timeout that wont trigger until user has stopped scrolling.
         $(window).scroll(function() {
-            /*
-            clearTimeout($.data(this, 'scrollTimer'));
-            $.data(this, 'scrollTimer', setTimeout(function() {
-                $this.checkPosition();
-
-            }, 100));
-
-            */
             $this.checkPosition();
-
         });
     },
 
+    findPositions : function() {
+        this.headerTop = this.headerPlaceholder.position().top;
+        this.titleMainBottom = this.titleMain.position().top + this.titleMain.outerHeight(true)
+
+    },
+
     checkPosition : function () {
+        var docWidthCurrent = $(document).width();
+
+        if (this.docWidth != docWidthCurrent) {
+            this.findPositions();
+        }
 
         var position = $(document).scrollTop();
 
@@ -78,10 +80,16 @@ travelblog.Header.prototype = {
     },
 
     navToggle : function() {
-        $('body').toggleClass('is-menu-open');
-        this.element.toggleClass('is-titles');
-        this.element.toggleClass('is-manual-titles');
-        this.navOverride = !this.navOverride;
+        var $this = this;
+
+        $this.navSidebar.removeClass('is-hidden');
+
+        setTimeout(function(){
+            $('body').toggleClass('is-menu-open');
+            this.element.toggleClass('is-titles');
+            this.element.toggleClass('is-manual-titles');
+            this.navOverride = !this.navOverride;
+        }, 100);
     }
 };
 
