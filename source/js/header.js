@@ -81,14 +81,14 @@ travelblog.Header.prototype = {
 
     navToggle : function() {
         var $this = this;
-
-        $this.navSidebar.removeClass('is-hidden');
+        this.navOverride = !this.navOverride;
+        this.navSidebar.removeClass('is-hidden');
 
         setTimeout(function(){
             $('body').toggleClass('is-menu-open');
-            this.element.toggleClass('is-titles');
-            this.element.toggleClass('is-manual-titles');
-            this.navOverride = !this.navOverride;
+            $this.element.toggleClass('is-titles');
+            $this.element.toggleClass('is-manual-titles');
+
         }, 100);
     }
 };

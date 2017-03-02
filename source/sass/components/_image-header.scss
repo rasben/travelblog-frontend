@@ -9,7 +9,7 @@
   @include pull-out();
 
   &__image-wrapper {
-    background-color: orange;
+    background-color: $color__post-it;
 
     > img {
       display: block;
@@ -41,8 +41,6 @@
     margin-bottom: $gutter--small;
 
     @include typography-title();
-
-
   }
 
   &__subtitle {
