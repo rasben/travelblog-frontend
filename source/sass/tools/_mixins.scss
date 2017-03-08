@@ -153,14 +153,14 @@
   }
 }
 
-@mixin media-query__tablet() {
-  @include media-query('max-width', $breakpoint--tablet) {
+@mixin media-query__tablet($state: 'max-width') {
+  @include media-query($state, $breakpoint--tablet) {
     @content;
   }
 }
 
-@mixin media-query__mobile() {
-  @include media-query('max-width', $breakpoint--mobile) {
+@mixin media-query__mobile($state: 'max-width') {
+  @include media-query($state, $breakpoint--mobile) {
     @content;
   }
 }
