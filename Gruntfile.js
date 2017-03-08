@@ -73,6 +73,18 @@ module.exports = function(grunt) {
         },
 
         image_resize: {
+            large : {
+                options: {
+                    width: 1920,
+                    height: 1080,
+                    crop: true,
+                    overwrite: true
+                },
+
+                src: ['source/images/**/*.png', 'source/images/**/*.jpg', 'source/images/**/*.jpeg'],
+                dest: 'build/images/large/'
+            },
+
             header : {
                 options: {
                     width: 860,
