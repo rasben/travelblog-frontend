@@ -9,11 +9,9 @@ $container-width--max: 764px;
 $header__height: 90px;
 $header__height--bare: $header__height - ($gutter * 2);
 
-
 // Breakpoints
-$breakpoint--tablet: $container-width--max + ($gutter--large);
+$breakpoint--tablet: $container-width--max + ($gutter--xlarge * 2);
 $breakpoint--mobile: 500px;
-
 
 // Typography
 $font-size__body: 16px;
@@ -32,6 +30,7 @@ $color__post-it: #FAF6EC;
 $color__map: #17495E;
 $color__map--light: #385E6B;
 $color__background: #EADFBC;
+$color__background-overlay: rgba(0, 0, 0, 0.35);
 
 $color__text--light: #fff;
 $color__text--dark: #121212;
@@ -40,7 +39,6 @@ $color__text--inactive: #9D9D9D;
 $color__link--hover: #e7e7e7;
 $color__link__background: $color__sand;
 $color__link__background--active: $color__sand--dark;
-
 
 $color__box-shadow: rgba(0, 0, 0, 0.20);
 
