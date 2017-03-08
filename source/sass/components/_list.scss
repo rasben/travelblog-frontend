@@ -2,17 +2,17 @@
   list-style: none;
   padding: 0;
   margin: 0;
-
+  margin-bottom: $gutter;
 
   &__item {
     position: relative;
     margin: 0;
-    margin-bottom: $gutter;
-    padding-bottom: $gutter;
+    padding: $gutter 0;
 
     border-bottom: 1px solid $color__text--dark;
 
     &.has-image {
+      min-height: 100px + ($gutter * 2);
       box-sizing: border-box;
       padding-left: 100px + $gutter;
     }
@@ -36,7 +36,7 @@
     padding: 0;
     margin-bottom: $gutter--small;
 
-    @include typography-body();
+    @include typography-list-title();
   }
 
   &__body {
