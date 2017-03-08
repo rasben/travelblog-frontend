@@ -1,7 +1,7 @@
 .light-box {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   z-index: 20;
 
   line-height: 0;
@@ -14,4 +14,18 @@
   @include icon($icon__expand) {
     font-size: 20px;
   };
+}
+
+// Contrib hacks
+#lightbox {
+  position: fixed !important;
+  top: 70px !important;
+
+  .lb-data .lb-close {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }
