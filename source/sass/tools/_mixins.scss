@@ -5,7 +5,6 @@
 @mixin box-shadow--absolute() {
   box-shadow: -4px 4px 10px $color__box-shadow;
 
-
   position: relative;
 
   &:before {
@@ -65,7 +64,6 @@
   }
 }
 
-
 @mixin is-hidden() {
   &.is-hidden {
     display: none;
@@ -123,6 +121,16 @@
 }
 
 @mixin typography-header-title($font-size: $font-size__header-title) {
+  font-size: $font-size;
+  font-weight: bold;
+}
+
+@mixin typography-list-title($font-size: $font-size__list-title) {
+  font-size: $font-size;
+  font-weight: bold;
+}
+
+@mixin typography-list-title-large($font-size: $font-size__list-title--large) {
   font-size: $font-size;
   font-weight: bold;
 }
@@ -192,6 +200,8 @@
     text-transform: none;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
+
+    @content;
   }
 }
 

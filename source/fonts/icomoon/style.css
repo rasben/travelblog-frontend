@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?c1az8j');
-  src:  url('fonts/icomoon.eot?c1az8j#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?c1az8j') format('truetype'),
-    url('fonts/icomoon.woff?c1az8j') format('woff'),
-    url('fonts/icomoon.svg?c1az8j#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?x4kykg');
+  src:  url('fonts/icomoon.eot?x4kykg#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?x4kykg') format('truetype'),
+    url('fonts/icomoon.woff?x4kykg') format('woff'),
+    url('fonts/icomoon.svg?x4kykg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-front-tag-english:before {
+  content: "\e902";
+}
 .icon-travel-heart-circle:before {
   content: "\e900";
 }

@@ -18,6 +18,8 @@ $font-size__body: 16px;
 $font-size__title: 38px;
 $font-size__subtitle: 22px;
 $font-size__header-title: 26px;
+$font-size__list-title: 24px;
+$font-size__list-title--large: 34px;
 
 $font-lineheight__body: 28px;
 
@@ -54,3 +56,6 @@ $icon__cross: '\e117';
 $icon__menu: '\e120';
 $icon__travel-heart: '\e901';
 $icon__travel-heart--circle: '\e900';
+$icon__front-tag--english: '\e902';
+$icon__front-tag--spanish: '\e902'; // @todo
+$icon__front-tag: $icon__front-tag--english;

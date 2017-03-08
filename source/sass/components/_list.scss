@@ -1,0 +1,48 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: $gutter;
+
+  &__item {
+    position: relative;
+    margin: 0;
+    padding: $gutter 0;
+
+    border-bottom: 1px solid $color__text--dark;
+
+    &.has-image {
+      min-height: 100px + ($gutter * 2);
+      box-sizing: border-box;
+      padding-left: 100px + $gutter;
+    }
+
+    &.is-active {
+      @include set-map-bg('../assets/list-bg.jpg');
+    }
+  }
+
+  &__image-wrapper {
+    @include aspect-ratio(1, 1, 'list__image');
+
+    position: absolute;
+    top: $gutter;
+    left: 0;
+    width: 100px;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: $gutter--small;
+
+    @include typography-list-title();
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+
+    @include typography-body();
+  }
+}

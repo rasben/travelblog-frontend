@@ -93,6 +93,6 @@ travelblog.Header.prototype = {
     }
 };
 
-$('.header').each(function() {
+$('.js-header').each(function() {
     new travelblog.Header({element:this});
 });
