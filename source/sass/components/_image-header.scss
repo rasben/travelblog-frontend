@@ -8,17 +8,65 @@
   @include box-shadow();
   @include pull-out();
 
+  &.has-tag {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    @include icon($icon__front-tag) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 60px;
+      z-index: 11;
+
+      text-align: center;
+      font-size: 280px;
+      color: $color__text--light;
+
+      @include media-query__tablet() {
+        font-size: 220px;
+      }
+
+
+      @include media-query__mobile() {
+        top: 40px;
+        font-size: 160px;
+      }
+    }
+  }
+
+  &.is-english {
+    &:before {
+      content: $icon__front-tag--english;
+    }
+  }
+
+  &.is-spanish {
+    &:before {
+      content: $icon__front-tag--spanish;
+    }
+  }
+
   &__image-wrapper {
     background-color: $color__post-it;
 
     @include aspect-ratio(16, 11, 'image-header__image');
-
   }
 
   &__captions {
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 13;
     margin-left: $gutter--large + $gutter;
     margin-right: $gutter--large;
 
