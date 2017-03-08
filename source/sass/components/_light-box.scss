@@ -1,0 +1,17 @@
+.light-box {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 20;
+
+  line-height: 0;
+  padding: 5px;
+  background-color: $color__background-overlay;
+  font-size: 0; // Hide SEO label
+  color: $color__text--light;
+  text-decoration: none;
+
+  @include icon($icon__expand) {
+    font-size: 20px;
+  };
+}
