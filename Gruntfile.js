@@ -12,8 +12,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-combine-media-queries');
 
-    grunt.registerTask('css', ['clean:css', 'sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('css', ['clean:css', 'sass', 'autoprefixer', 'cmq', 'cssmin']);
     grunt.registerTask('js', ['clean:js', 'uglify:js', 'concat:js', 'file_append:js']);
     grunt.registerTask('images', ['clean:images', 'copy:images', 'image_resize', 'imagemin:images']);
     grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
@@ -53,13 +54,21 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: [{
-                    style: 'compressed',
+                    style: 'nested',
                     expand: true,
                     cwd: 'source/sass',
                     src: ['*.scss'],
                     dest: 'build/css',
                     ext: '.css'
                 }]
+            }
+        },
+
+        cmq: {
+            css: {
+                files: {
+                    'build/css': ['build/css/**/*.css']
+                }
             }
         },
 
